@@ -22,6 +22,8 @@ window/size/viewport_height=600
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://d176y0k1fug5f"
+mouse_cursor/tooltip_position_offset=Vector2(16, 16)
 
 [physics]
 
