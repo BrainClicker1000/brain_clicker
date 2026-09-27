@@ -1,12 +1,95 @@
 [gd_scene format=3 uid="uid://kf8u8xawu7cj"]
 
+[ext_resource type="Script" uid="uid://cj3xil55cmxw7" path="res://Scenes/Rotation.gd" id="1_ghw46"]
 [ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://cobcporr2kanf" path="res://Assets/Textures/GUI/Btn9Slice.png" id="2_853f1"]
+[ext_resource type="Texture2D" uid="uid://4u2ieop1hm2b" path="res://Assets/Textures/Misc/missing.png" id="3_8saeu"]
+
+[sub_resource type="Curve2D" id="Curve2D_ghw46"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 32, 568, 0, 0, 0, 0, 32, 32, 0, 0, 0, 0, 768, 32, 0, 0, 0, 0, 768, 568, 0, 0, 0, 0, 32, 568)
+}
+point_count = 5
 
 [sub_resource type="LabelSettings" id="LabelSettings_bufqm"]
 font = ExtResource("1_tt5f1")
 
 [node name="Menu" type="Node2D" unique_id=1281296869]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=815994629 node_paths=PackedStringArray("Self")]
+curve = SubResource("Curve2D_ghw46")
+script = ExtResource("1_ghw46")
+Self = NodePath(".")
+speed = 5.0
+
+[node name="BrainRot" type="PathFollow2D" parent="Path2D" unique_id=899978128]
+position = Vector2(32, 568)
+rotation = -1.5707964
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot" unique_id=331648724]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot2" type="PathFollow2D" parent="Path2D" unique_id=1021721784]
+position = Vector2(32, 249.99995)
+rotation = -1.5707964
+progress = 318.00003
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot2" unique_id=265676109]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot3" type="PathFollow2D" parent="Path2D" unique_id=1541779275]
+position = Vector2(131.99681, 32)
+progress = 636.00006
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot3" unique_id=354740946]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot4" type="PathFollow2D" parent="Path2D" unique_id=954146460]
+position = Vector2(450.00095, 32)
+progress = 954.0001
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot4" unique_id=207487496]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot5" type="PathFollow2D" parent="Path2D" unique_id=1349041747]
+position = Vector2(768.0002, 32.000122)
+rotation = 0.00024941197
+progress = 1272.0001
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot5" unique_id=184584213]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot6" type="PathFollow2D" parent="Path2D" unique_id=2040597293]
+position = Vector2(768, 349.99976)
+rotation = 1.5707964
+progress = 1590.0001
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot6" unique_id=650728006]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot7" type="PathFollow2D" parent="Path2D" unique_id=1057364707]
+position = Vector2(668.004, 568)
+rotation = 3.1415927
+progress = 1908.0002
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot7" unique_id=428534025]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
+
+[node name="BrainRot8" type="PathFollow2D" parent="Path2D" unique_id=939217805]
+position = Vector2(349.99954, 568)
+rotation = 3.1415927
+progress = 2226.0002
+
+[node name="BrainRot" type="Sprite2D" parent="Path2D/BrainRot8" unique_id=1527801905]
+scale = Vector2(16, 16)
+texture = ExtResource("3_8saeu")
 
 [node name="GUI" type="Control" parent="." unique_id=328425880]
 layout_mode = 3
