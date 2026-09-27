@@ -1,3 +1,55 @@
 [gd_scene format=3 uid="uid://kf8u8xawu7cj"]
 
+[ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://cobcporr2kanf" path="res://Assets/Textures/GUI/Btn9Slice.png" id="2_853f1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bufqm"]
+font = ExtResource("1_tt5f1")
+
 [node name="Menu" type="Node2D" unique_id=1281296869]
+
+[node name="GUI" type="Control" parent="." unique_id=328425880]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 600.0
+
+[node name="MainPanel" type="Panel" parent="GUI" unique_id=2083168367]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 32.0
+offset_right = 392.0
+offset_bottom = 288.0
+scale = Vector2(2, 2)
+
+[node name="Title" type="Label" parent="GUI/MainPanel" unique_id=2057474404]
+texture_filter = 1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 39.0
+text = "Brain Clicker 1000!"
+label_settings = SubResource("LabelSettings_bufqm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GUI/MainPanel" unique_id=170926419]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 90.0
+offset_top = 64.0
+offset_right = 166.0
+offset_bottom = 92.0
+texture = ExtResource("2_853f1")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button" type="Button" parent="GUI/MainPanel/NinePatchRect" unique_id=60002648]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 28.0
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_tt5f1")
+text = "Play"
