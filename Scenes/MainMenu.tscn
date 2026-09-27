@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://cobcporr2kanf" path="res://Assets/Textures/GUI/Btn9Slice.png" id="2_853f1"]
 [ext_resource type="Texture2D" uid="uid://4u2ieop1hm2b" path="res://Assets/Textures/Misc/missing.png" id="3_8saeu"]
+[ext_resource type="Script" uid="uid://c7afr7t07hrof" path="res://Scripts/PlayButton.gd" id="5_df05h"]
 
 [sub_resource type="Curve2D" id="Curve2D_ghw46"]
 _data = {
@@ -136,3 +137,4 @@ offset_bottom = 28.0
 theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("1_tt5f1")
 text = "Play"
+script = ExtResource("5_df05h")

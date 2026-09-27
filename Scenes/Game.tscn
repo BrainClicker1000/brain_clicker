@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://k7uxhg0xo4qw"]
+
+[ext_resource type="Texture2D" uid="uid://dpjofgup0f86q" path="res://Assets/Textures/Interactive/BtnBottom.png" id="1_gl6un"]
+[ext_resource type="Texture2D" uid="uid://bdpdhovckoay3" path="res://Assets/Textures/Interactive/BtnTop.png" id="2_j5yw3"]
+[ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="3_j5yw3"]
+
+[sub_resource type="Curve2D" id="Curve2D_j5yw3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -63.5, -1, 0, 0, 0, 0, -61.825, -16.54, 0, 0, 0, 0, -55.5, -32, 0, 0, 0, 0, -44.86, -46.13, 0, 0, 0, 0, -31.5, -56.5, 0, 0, 0, 0, -16.12, -62.81, 0, 0, 0, 0, 0.5, -65, 0, 0, 0, 0, 17, -62.83, 0, 0, 0, 0, 32.5, -56.5, 0, 0, 0, 0, 45.745, -46.335, 0, 0, 0, 0, 56, -33, 0, 0, 0, 0, 62.5, -17.205, 0, 0, 0, 0, 64.5, -1, 0, 0, 0, 0, 62.325, 15.565, 0, 0, 0, 0, 56, 31, 0, 0, 0, 0, 45.745, 44.26, 0, 0, 0, 0, 32.5, 54.5, 0, 0, 0, 0, 17, 61, 0, 0, 0, 0, 0.5, 63, 0, 0, 0, 0, -16, 61, 0, 0, 0, 0, -31.505, 54.435, 0, 0, 0, 0, -44.5, 44.5, 0, 0, 0, 0, -55, 31, 0, 0, 0, 0, -61.34, 15.51, 0, 0, 0, 0, -63.5, -1)
+}
+point_count = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_bufqm"]
+font = ExtResource("3_j5yw3")
+
+[node name="Game" type="Node2D" unique_id=174258751]
+
+[node name="Button" type="Sprite2D" parent="." unique_id=41275379]
+position = Vector2(190, 388)
+scale = Vector2(2, 2)
+texture = ExtResource("1_gl6un")
+
+[node name="TextureButton" type="TextureButton" parent="Button" unique_id=668287887]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture_normal = ExtResource("2_j5yw3")
+texture_pressed = ExtResource("2_j5yw3")
+texture_hover = ExtResource("2_j5yw3")
+metadata/_edit_use_anchors_ = true
+
+[node name="ClickerRing1" type="Path2D" parent="Button" unique_id=1487132058]
+position = Vector2(-0.5, 1)
+curve = SubResource("Curve2D_j5yw3")
+
+[node name="MoneyTextLabel" type="Label" parent="." unique_id=404013943]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(2, 2)
+text = "Money:$"
+label_settings = SubResource("LabelSettings_bufqm")
+
+[node name="MoneyLabel" type="Label" parent="MoneyTextLabel" unique_id=527319161]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 99.0
+offset_bottom = 23.0
+text = "0"
+label_settings = SubResource("LabelSettings_bufqm")
+
+[node name="NuronTextLabel" type="Label" parent="." unique_id=890760832]
+offset_top = 45.0
+offset_right = 56.0
+offset_bottom = 68.0
+scale = Vector2(2, 2)
+text = "Nurons:"
+label_settings = SubResource("LabelSettings_bufqm")
+
+[node name="NuronLabel" type="Label" parent="NuronTextLabel" unique_id=657346015]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 99.0
+offset_bottom = 23.0
+text = "86,000,000,000"
+label_settings = SubResource("LabelSettings_bufqm")
