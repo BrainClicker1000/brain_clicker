@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://k7uxhg0xo4qw"]
 
 [ext_resource type="Texture2D" uid="uid://dpjofgup0f86q" path="res://Assets/Textures/Interactive/BtnBottom.png" id="1_gl6un"]
+[ext_resource type="Script" uid="uid://cxqff5mx56yhx" path="res://Scripts/Game.gd" id="1_kldst"]
 [ext_resource type="Texture2D" uid="uid://bdpdhovckoay3" path="res://Assets/Textures/Interactive/BtnTop.png" id="2_j5yw3"]
 [ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="3_j5yw3"]
 
@@ -13,7 +14,13 @@ point_count = 25
 [sub_resource type="LabelSettings" id="LabelSettings_bufqm"]
 font = ExtResource("3_j5yw3")
 
-[node name="Game" type="Node2D" unique_id=174258751]
+[node name="Game" type="Node2D" unique_id=174258751 node_paths=PackedStringArray("MainBtn", "MoneyLabel", "NuronLabel", "MultiplyerLabel")]
+script = ExtResource("1_kldst")
+MainBtn = NodePath("Button/TextureButton")
+MoneyLabel = NodePath("MoneyTextLabel/MoneyLabel")
+NuronLabel = NodePath("NuronTextLabel/NuronLabel")
+MultiplyerLabel = NodePath("Button/MultiplyerLabel")
+Multiplyer = 0.0
 
 [node name="Button" type="Sprite2D" parent="." unique_id=41275379]
 position = Vector2(190, 388)
@@ -34,6 +41,14 @@ metadata/_edit_use_anchors_ = true
 [node name="ClickerRing1" type="Path2D" parent="Button" unique_id=1487132058]
 position = Vector2(-0.5, 1)
 curve = SubResource("Curve2D_j5yw3")
+
+[node name="MultiplyerLabel" type="Label" parent="Button" unique_id=1593253175]
+offset_left = -12.0
+offset_top = -48.0
+offset_right = 12.0
+offset_bottom = -25.0
+text = "1.0"
+label_settings = SubResource("LabelSettings_bufqm")
 
 [node name="MoneyTextLabel" type="Label" parent="." unique_id=404013943]
 offset_right = 40.0
