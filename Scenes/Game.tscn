@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://k7uxhg0xo4qw"]
 
 [ext_resource type="Texture2D" uid="uid://dpjofgup0f86q" path="res://Assets/Textures/Interactive/BtnBottom.png" id="1_gl6un"]
-[ext_resource type="Script" uid="uid://cxqff5mx56yhx" path="res://Scripts/Game.gd" id="1_kldst"]
+[ext_resource type="Script" uid="uid://cxqff5mx56yhx" path="res://Scripts/MainScreen.gd" id="1_kldst"]
 [ext_resource type="Texture2D" uid="uid://bdpdhovckoay3" path="res://Assets/Textures/Interactive/BtnTop.png" id="2_j5yw3"]
 [ext_resource type="FontFile" uid="uid://cjpuvnxjhqach" path="res://Assets/Fonts/Px437_IBM_VGA_8x16.ttf" id="3_j5yw3"]
+[ext_resource type="Texture2D" uid="uid://cobcporr2kanf" path="res://Assets/Textures/GUI/Btn9Slice.png" id="5_b2bpf"]
+[ext_resource type="Script" uid="uid://dxlex6xm1chs6" path="res://Scripts/ShopScreen.gd" id="6_7lihs"]
 
 [sub_resource type="Curve2D" id="Curve2D_j5yw3"]
 _data = {
@@ -14,19 +16,24 @@ point_count = 25
 [sub_resource type="LabelSettings" id="LabelSettings_bufqm"]
 font = ExtResource("3_j5yw3")
 
-[node name="Game" type="Node2D" unique_id=174258751 node_paths=PackedStringArray("MainBtn", "MoneyLabel", "NuronLabel", "MultiplyerLabel")]
+[node name="Game" type="Node2D" unique_id=174258751 node_paths=PackedStringArray("MainBtn", "ShopBtn", "ShopAncor", "MoneyLabel", "NuronLabel", "MultiplyerLabel", "Camera")]
 script = ExtResource("1_kldst")
-MainBtn = NodePath("Button/TextureButton")
-MoneyLabel = NodePath("MoneyTextLabel/MoneyLabel")
-NuronLabel = NodePath("NuronTextLabel/NuronLabel")
-MultiplyerLabel = NodePath("Button/MultiplyerLabel")
+MainBtn = NodePath("Main/Button/TextureButton")
+ShopBtn = NodePath("Main/ShopNinePatch/Button")
+ShopAncor = NodePath("Shop")
+MoneyLabel = NodePath("Main/MoneyTextLabel/MoneyLabel")
+NuronLabel = NodePath("Main/NuronTextLabel/NuronLabel")
+MultiplyerLabel = NodePath("Main/Button/MultiplyerLabel")
+Camera = NodePath("Camera2D")
 
-[node name="Button" type="Sprite2D" parent="." unique_id=41275379]
+[node name="Main" type="Node2D" parent="." unique_id=390723850]
+
+[node name="Button" type="Sprite2D" parent="Main" unique_id=41275379]
 position = Vector2(190, 388)
 scale = Vector2(2, 2)
 texture = ExtResource("1_gl6un")
 
-[node name="TextureButton" type="TextureButton" parent="Button" unique_id=668287887]
+[node name="TextureButton" type="TextureButton" parent="Main/Button" unique_id=668287887]
 self_modulate = Color(1, 0, 0, 1)
 anchors_preset = 8
 anchor_left = 0.5
@@ -42,26 +49,26 @@ texture_pressed = ExtResource("2_j5yw3")
 texture_hover = ExtResource("2_j5yw3")
 metadata/_edit_use_anchors_ = true
 
-[node name="ClickerRing1" type="Path2D" parent="Button" unique_id=1487132058]
+[node name="ClickerRing1" type="Path2D" parent="Main/Button" unique_id=1487132058]
 position = Vector2(-0.5, 1)
 curve = SubResource("Curve2D_j5yw3")
 
-[node name="MultiplyerLabel" type="Label" parent="Button" unique_id=1593253175]
+[node name="MultiplyerLabel" type="Label" parent="Main/Button" unique_id=1593253175]
 offset_left = -12.0
 offset_top = -48.0
 offset_right = 12.0
 offset_bottom = -25.0
-text = "1.0"
+text = "0.0"
 label_settings = SubResource("LabelSettings_bufqm")
 
-[node name="MoneyTextLabel" type="Label" parent="." unique_id=404013943]
-offset_right = 40.0
+[node name="MoneyTextLabel" type="Label" parent="Main" unique_id=404013943]
+offset_right = 56.0
 offset_bottom = 23.0
 scale = Vector2(2, 2)
 text = "Money:$"
 label_settings = SubResource("LabelSettings_bufqm")
 
-[node name="MoneyLabel" type="Label" parent="MoneyTextLabel" unique_id=527319161]
+[node name="MoneyLabel" type="Label" parent="Main/MoneyTextLabel" unique_id=527319161]
 layout_mode = 0
 offset_left = 59.0
 offset_right = 99.0
@@ -69,7 +76,7 @@ offset_bottom = 23.0
 text = "0"
 label_settings = SubResource("LabelSettings_bufqm")
 
-[node name="NuronTextLabel" type="Label" parent="." unique_id=890760832]
+[node name="NuronTextLabel" type="Label" parent="Main" unique_id=890760832]
 offset_top = 45.0
 offset_right = 56.0
 offset_bottom = 68.0
@@ -77,10 +84,67 @@ scale = Vector2(2, 2)
 text = "Nurons:"
 label_settings = SubResource("LabelSettings_bufqm")
 
-[node name="NuronLabel" type="Label" parent="NuronTextLabel" unique_id=657346015]
+[node name="NuronLabel" type="Label" parent="Main/NuronTextLabel" unique_id=657346015]
 layout_mode = 0
 offset_left = 59.0
 offset_right = 99.0
 offset_bottom = 23.0
-text = "86,000,000,000"
+text = "0"
 label_settings = SubResource("LabelSettings_bufqm")
+
+[node name="ShopNinePatch" type="NinePatchRect" parent="Main" unique_id=891873212]
+self_modulate = Color(0, 0.5019608, 1, 1)
+offset_left = 608.0
+offset_top = 268.0
+offset_right = 736.0
+offset_bottom = 332.0
+texture = ExtResource("5_b2bpf")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button" type="Button" parent="Main/ShopNinePatch" unique_id=1097304012]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 28.0
+scale = Vector2(1.6800048, 2.2800002)
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_j5yw3")
+text = "Shop ->"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=35620620]
+position = Vector2(400, 300)
+
+[node name="Shop" type="Node2D" parent="." unique_id=2065525525 node_paths=PackedStringArray("BackBtn", "MainAncor", "MoneyLabel", "NuronLabel", "MultiplyerLabel", "Camera")]
+position = Vector2(800, 0)
+script = ExtResource("6_7lihs")
+BackBtn = NodePath("BtnNinePatch/Button")
+MainAncor = NodePath("../Main")
+MoneyLabel = NodePath("../Main/MoneyTextLabel/MoneyLabel")
+NuronLabel = NodePath("../Main/NuronTextLabel/NuronLabel")
+MultiplyerLabel = NodePath("../Main/Button/MultiplyerLabel")
+Camera = NodePath("../Camera2D")
+
+[node name="BtnNinePatch" type="NinePatchRect" parent="Shop" unique_id=1445942166]
+self_modulate = Color(0, 0.5019608, 1, 1)
+offset_left = 64.0
+offset_top = 268.0
+offset_right = 192.0
+offset_bottom = 332.0
+texture = ExtResource("5_b2bpf")
+region_rect = Rect2(0, 0, 20, 20)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Button" type="Button" parent="Shop/BtnNinePatch" unique_id=1752295674]
+layout_mode = 0
+offset_right = 76.0
+offset_bottom = 28.0
+scale = Vector2(1.6800048, 2.2800002)
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("3_j5yw3")
+text = "<- Back"
